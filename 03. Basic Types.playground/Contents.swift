@@ -28,16 +28,16 @@ let anotherGreeting: String = "Valar Dohaeris!"
 //: ### Tuples
 //: Tuples group multiple values into a single compound value. The values within a tuple can be of any type and do not have to be of the same type as each other.
 
-let jamie = (38, "Lannister") //This is of type (Int, String)
+let jaime = (38, "Lannister") //This is of type (Int, String)
 
 //Decompose Tuple
-let (age, family) = jamie
-print("Jamie is \(age) and a \(family)")
+let (age, family) = jaime
+print("Jaime is \(age) and a \(family)")
 
-let (_, justFamily) = jamie
-print("Jamie is a \(justFamily)")
+let (_, justFamily) = jaime
+print("Jaime is a \(justFamily)")
 
-print("Jamie is \(jamie.0) and a \(jamie.1)")
+print("Jaime is \(jaime.0) and a \(jaime.1)")
 
 //Name individual elements
 let tyrion = (age: 34, family: "Lannister")
@@ -121,6 +121,20 @@ parents.isDisjointWith(kids) //😔
 
 
 //: Dictionaries - A dictionary stores associations between keys of the same type and values of the same type in an collection with no defined ordering. Each value is associated with a unique key, which acts as an identifier for that value within the dictionary.
+
+var basicSyntax = Dictionary<String, String>()
+
+//Shorthand
+var shortHand = [String: String]()
+var nickNames: [String: String] = ["KingSlayer": "Jaime Lannister", "Imp": "Tyrion Lannistor"]
+
+nickNames.count
+
+//Add
+nickNames["Khaleesi"] = "Daenerys Targaryen"
+nickNames["Imp"]
+
+let arrayOfNicknames = [String](nickNames.keys)
 
 
 
