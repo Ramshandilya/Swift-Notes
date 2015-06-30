@@ -137,7 +137,7 @@ var basicSyntax = Dictionary<String, String>()
 
 //Shorthand
 var shortHand = [String: String]()
-var nickNames: [String: String] = ["KingSlayer": "Jaime Lannister", "Imp": "Tyrion Lannistor"]
+var nickNames: [String: String] = ["KingSlayer": "Jaime Lannister", "Imp": "Tyrion Lannister"]
 
 nickNames.count
 
