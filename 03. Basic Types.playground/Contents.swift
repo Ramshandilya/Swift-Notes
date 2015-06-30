@@ -21,9 +21,20 @@ let justOverOneMillion = 1_000_000.000_000_1
 let shouldITrustHim = false
 let amIAwesome: Bool = true
 
-//Strings
+
+//: ### Strings
+
+let emptyString = ""
+let anotherString = String()
+emptyString == anotherString
+
 let greeting = "Valar Morghulis!"
 let anotherGreeting: String = "Valar Dohaeris!"
+greeting == anotherGreeting
+
+let combinedGreeting = greeting + " and " + anotherGreeting
+
+combinedGreeting.characters.count
 
 //: ### Tuples
 //: Tuples group multiple values into a single compound value. The values within a tuple can be of any type and do not have to be of the same type as each other.
