@@ -1,7 +1,6 @@
 //: # Swift Foundation
 //: ----
-
-//: ### Basic Types
+//: ## Basic Types
 
 //Int
 let numberOfDragons = 3 //This is an Int
@@ -54,7 +53,8 @@ print("Jaime is \(jaime.0) and a \(jaime.1)")
 let tyrion = (age: 34, family: "Lannister")
 print("Tyrion is \(tyrion.age) and a \(tyrion.family)")
 
-//: ⚠️ - Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple.
+//: ### ⚠️
+//: Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple.
 
 //: ### Collection Types
 //: ---
@@ -62,7 +62,8 @@ print("Tyrion is \(tyrion.age) and a \(tyrion.family)")
 //: If you create an array, a set, or a dictionary, and assign it to a variable, the collection that is created will be mutable.
 //: If you assign an array, a set, or a dictionary to a constant, that collection is immutable, and its size and contents cannot be changed.
 
-//: 😋 - It is good practice to create immutable collections in all cases where the collection does not need to change. Doing so enables the Swift compiler to optimize the performance of the collections you create.
+//: ### 😋
+//: It is good practice to create immutable collections in all cases where the collection does not need to change. Doing so enables the Swift compiler to optimize the performance of the collections you create.
 
 //: Array - An array stores values of the same type in an ordered list. The same value can appear in an array multiple times at different positions.
 
