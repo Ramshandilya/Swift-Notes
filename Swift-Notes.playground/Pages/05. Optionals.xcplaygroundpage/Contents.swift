@@ -2,6 +2,7 @@
 //: ----
 
 //: ## Optionals
+
 //Consider the following code
 
 let checkList = ["Joffrey", "Cersei", "Mountain", "Hound"];
@@ -97,6 +98,9 @@ let implicitName = assumedName //No need of "?" suffix
 //: An implicitly unwrapped optional is a normal optional behind the scenes, but can also be used like a nonoptional value, without the need to unwrap the optional value each time it is accessed.
 
 //: ⚠️ - If you try to access an implicitly unwrapped optional when it does not contain a value, you will trigger a runtime error. The result is exactly the same as if you place an exclamation mark after a normal optional that does not contain a value.
+
+//: 😋 - Optionals help save a lot of time and make our code readable and efficient. It might take a little getting used to but once you get the hang of it you would hate to have code lying around that explicitly checks for nils or sentinel values.
+
 
 //: ---
 //: [Next](@next)

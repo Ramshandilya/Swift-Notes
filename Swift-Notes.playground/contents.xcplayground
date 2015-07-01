@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' requires-full-environment='true' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' requires-full-environment='true' display-mode='raw'>
     <pages>
         <page name='02. Variables and constants '/>
         <page name='03. Basic Types'/>
         <page name='04. Control Flow'/>
         <page name='05. Optionals'/>
+        <page name='06. Enumerations'/>
     </pages>
 </playground>
