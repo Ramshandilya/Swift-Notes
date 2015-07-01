@@ -3,7 +3,7 @@
 
 //: ### Variables and Constants
 
-//: Declare variables with **var** keyword and constants with **let**
+//: Declare variables with ***var*** keyword and constants with ***let***
 
 let numberOfRooms = 3
 var numberOfDogs = 1
@@ -11,14 +11,14 @@ var numberOfDogs = 1
 //numberOfRooms += 1
 numberOfDogs += 1
 
-//: 😋 - Always start with **let**. If you need to change it's value, declare it as a **var**.
+//: 😋 - Always start with ***let***. If you need to change it's value, declare it as a ***var***.
 
 
 //: #### Inferred Typing & Explicit Typing
 
 let someVariable = 10
 
-//: The compiler knows 10 is an **Int**, so it set the type of **someVariable** to an Int for you automatically.
+//: The compiler knows 10 is an ***Int***, so it set the type of ***someVariable*** to an Int for you automatically.
 
 let boringWelcomeText = "Hello World!" //This is of String Type
 

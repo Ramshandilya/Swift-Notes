@@ -4,7 +4,7 @@
 //: ## Control Flow
 
 //: ### For Loops
-//: Two kinds: **for-in** and **for**
+//: Two kinds: ***for-in*** and ***for***
 
 //For-in
 for index in 1...4 {
@@ -44,14 +44,14 @@ for var index = 1; index < 4; ++index {
 //: ### While Loops
 //: A while loop performs a set of statements until a condition becomes false. These kinds of loops are best used when the number of iterations is not known before the first iteration begins.
 
-//: **while** evaluates its condition at the start of each pass through the loop.
+//: ***while*** evaluates its condition at the start of each pass through the loop.
 var index = 1
 while index < 5 {
     print("Para..para..Paradise!")
     ++index
 }
 
-//: **repeat-while** evaluates its condition at the end of each pass through the loop.
+//: ***repeat-while*** evaluates its condition at the end of each pass through the loop.
 repeat {
     print("Para..para..Paradise!")
     ++index
@@ -97,7 +97,7 @@ default:
     print("Not worth it")
 }
 
-//: Notice that there are no **break** statements. No implicit fallthrough. Safer.
+//: Notice that there are no ***break*** statements. No implicit fallthrough. Safer.
 
 //Tuples
 
@@ -141,14 +141,14 @@ case let (x, y):
 }
 
 //: ### Control Transfer Statements
-//: **continue**, **break**, **fallthrough** and **return**
+//: ***continue***, ***break***, ***fallthrough*** and ***return***
 
 //continue
-//: The **continue** statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop.
+//: The ***continue*** statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop.
 
 //break
-//: **break** inside a loop statement ends the loop’s execution immediately.
-//: **break** inside a **switch** statement causes the switch statement to end its execution immediately.
+//: ***break*** inside a loop statement ends the loop’s execution immediately.
+//: ***break*** inside a ***switch*** statement causes the switch statement to end its execution immediately.
 
 //: ⚠️ -  A switch case that only contains a comment is reported as a compile-time error. Comments are not statements and do not cause a switch case to be ignored. Always use a break statement to ignore a switch case.
 
@@ -167,7 +167,7 @@ default:
 
 //Early exit
 
-//: A **guard** statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to require that a condition must be true in order for the code after the guard statement to be executed. Unlike an if statement, a guard statement always has an else clause—the code inside the else` clause is executed if the condition is not true.
+//: A ***guard*** statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to require that a condition must be true in order for the code after the guard statement to be executed. Unlike an if statement, a guard statement always has an else clause—the code inside the else` clause is executed if the condition is not true.
 
 nickNames
 

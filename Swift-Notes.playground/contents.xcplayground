@@ -4,5 +4,6 @@
         <page name='02. Variables and constants '/>
         <page name='03. Basic Types'/>
         <page name='04. Control Flow'/>
+        <page name='05. Optionals'/>
     </pages>
 </playground>
