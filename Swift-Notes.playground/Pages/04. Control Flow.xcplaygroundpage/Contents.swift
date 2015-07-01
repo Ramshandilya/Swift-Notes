@@ -33,7 +33,7 @@ for (nickName, realName) in nickNames {
     print("\(realName) is also known as \(nickName)")
 }
 
-//For 
+//For
 //C-style for loops with a condition and an incrementer
 // for initilization; conditon; increment
 
@@ -125,8 +125,8 @@ case (0, let y):
     print("Arya is somewhere on the Y-Axis line with y position \(y)")
 case (let x, let y):
     print("Arya is at (\(x), \(y))")
-//default:
-//    print("Default not required in this case since we've exhausted all cases.")
+    //default:
+    //    print("Default not required in this case since we've exhausted all cases.")
 }
 
 // Where
@@ -183,3 +183,5 @@ func greetMotherOfDragons() {
 greetMotherOfDragons()
 
 
+//: ---
+//: [Next](@next)
