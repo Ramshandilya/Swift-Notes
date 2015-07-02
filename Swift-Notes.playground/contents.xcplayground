@@ -8,5 +8,6 @@
         <page name='05. Optionals'/>
         <page name='06. Enumerations'/>
         <page name='07. Functions'/>
+        <page name='08. Closures'/>
     </pages>
 </playground>

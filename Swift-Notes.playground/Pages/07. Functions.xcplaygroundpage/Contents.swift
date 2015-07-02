@@ -94,12 +94,16 @@ import Foundation
 
 func nextVictim(names : String...) -> String {
     let count = names.count
-    let randomIndex = random() % count
-    
-    return names[randomIndex]
+    if count > 0 {
+        let randomIndex = random() % count
+        return names[randomIndex]
+    } else {
+        return "Lucky!"
+    }
 }
 
 nextVictim("Daenarys", "Arya", "Tyrion", "Jon", "Ramsey")
+nextVictim()
 
 //A function may have at most one variadic parameter. Place it after default parameters.
 
