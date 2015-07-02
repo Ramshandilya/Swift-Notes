@@ -4,7 +4,7 @@
 
 //: Functions are self-contained chunks of code that can perform a specific task.
 
-//: Every Swift function has a type. You can use this like any other type in Swift, which makes it easy to pass functions as parameters or return functions from functions. Nested functions are also possible.
+//: Every Swift function has a specific ***function type***, made up of the parameter types and the return type of the function. You can use this like any other type in Swift, which makes it easy to pass functions as parameters or return functions from functions. Nested functions are also possible.
 
 func simpleGreeting(param1: String, param2: String) -> String{
     return param1 + " " + param2 + "!"
@@ -152,6 +152,80 @@ print(hisName)
 * If marked as `inout`, the parameter cannot also be var or let
 * In-out parameters are not the same thing as returning a value from a function. It is an alternative way for a function to have an effect outside of the scope of its function body.
 */
+
+//: ## Function Types
+//: Every function has a specific ***function type***, made up of the parameter types and the return type of the function.
+
+/*: 
+Type of `swapNames` function is `(String, String) -> Void`
+
+Type of `weatherAtWinterfell` is `() -> (Int, Int)`
+*/
+
+let greeting = fancyGreeting
+print(greeting())
+
+let quote = coolQuote
+print(quote("I <3 ", "swift"))
+
+//: ### Function Types as parameter types
+
+func addNumbers(a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+func subtractNumbers(a: Int, _ b: Int) -> Int {
+    return a - b
+}
+
+func printMathOperation(mathOperation: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(mathOperation(a,b))")
+}
+
+printMathOperation(addNumbers, 10, 13)
+printMathOperation(subtractNumbers, 24, 15)
+
+//: ### Function as Return Types
+
+enum Operator {
+    case Add
+    case Subtract
+}
+
+func chooseOperationForOperator(op: Operator) -> (Int, Int) -> Int {
+    switch op {
+    case Operator.Add:
+        return addNumbers
+    case Operator.Subtract:
+        return subtractNumbers
+    }
+}
+
+let someOperation = chooseOperationForOperator(.Add)
+print(someOperation(3, 5))
+
+//: ### Nested functions 
+
+func chooseOperation(op: Operator) -> (Int, Int) -> Int {
+    
+    func add(a: Int, _ b: Int) -> Int {
+        return a + b
+    }
+    
+    func subtract(a: Int, _ b: Int) -> Int {
+        return a - b
+    }
+    
+    switch op {
+    case Operator.Add:
+        return add
+    case Operator.Subtract:
+        return subtract
+    }
+}
+
+let anotherOperation = chooseOperationForOperator(.Subtract)
+print(anotherOperation(8, 6))
 
 //: ----
 //: [Next](@next)
