@@ -102,7 +102,7 @@ func nextVictim(names : String...) -> String {
     }
 }
 
-nextVictim("Daenarys", "Arya", "Tyrion", "Jon", "Ramsey")
+nextVictim("Daenerys", "Arya", "Tyrion", "Jon", "Ramsey")
 nextVictim()
 
 //A function may have at most one variadic parameter. Place it after default parameters.

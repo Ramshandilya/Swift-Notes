@@ -31,6 +31,23 @@ Anatomy of a closure
 
 //: Closure expression syntax can use constant parameters, variable parameters, and inout parameters. Default values cannot be provided. Variadic parameters can be used if you name the variadic parameter and place it last in the parameter list. Tuples can also be used as parameter types and return types.
 
+import Foundation
+
+var names = ["Jon Snow", "Tyrion Lannister", "Daenerys Targaryen", "Arya Stark"];
+
+let abbreviatedNames = names.map { (name: String) -> String in
+    let words = name.componentsSeparatedByString(" ")
+    
+    var abbreviation: String = ""
+    
+    for word in words {
+        abbreviation += String(word.characters.first!)
+    }
+    
+    return abbreviation
+}
+
+//: Swift's standard library provides a function called `map`. `map` is performed on each item, transforms each item based on the closure content and returns a new array with the transformed values.
 
 
 
