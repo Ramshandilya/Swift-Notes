@@ -118,6 +118,15 @@ let anotherMonth = Month(rawValue: 5)
 //Therefore the raw value initializer will return nil for raw values not present in the enum.
 //So the type of anotherMonth will be....Month? and not Month
 
+//Knowing when to use enums and when to use other data types (such as classes or structs) can be a bit difficult. They are most useful when you have a closed set of possible values.
+
+//For eg. an optional is a enum behind the scenes.
+
+enum OptionalType<T> {
+    case Nil
+    case Some(T)
+}
+
 //Enums in Swift are incredibly powerful compared to, for example, enums in C. One of the most important aspects of enumerations is that they are a first class types in Swift and they are Value Types.
 
 //: ---
