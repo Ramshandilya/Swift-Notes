@@ -31,25 +31,85 @@ Anatomy of a closure
 
 //: Closure expression syntax can use constant parameters, variable parameters, and inout parameters. Default values cannot be provided. Variadic parameters can be used if you name the variadic parameter and place it last in the parameter list. Tuples can also be used as parameter types and return types.
 
-import Foundation
-
 var names = ["Jon Snow", "Tyrion Lannister", "Daenerys Targaryen", "Arya Stark"];
 
-let abbreviatedNames = names.map { (name: String) -> String in
-    let words = name.componentsSeparatedByString(" ")
+let orderedNames = names.sort ({ (a: String, b: String) -> Bool in
+    return a < b
+//    return a.characters.count < b.characters.count
     
-    var abbreviation: String = ""
+})
+
+print(orderedNames)
+
+//: Swift's standard library provides a function called `sort`. `sort` is performed on each pair of items, sorts them based on the closure content and returns a new array with the sorted values.
+
+//: ### Inferring type from constant
+//: The type of the parameters of `sort` function and its return value can be inferred from the type of sort function.
+//: 😏 It's obvious that it will be of the same type of the elements in the array.
+
+let condensedOrderedNames = names.sort ({ a, b in
+    return a < b
+})
+
+//: ### Implicit returns from Single-Expression closures
+//: 😏 It's very obvious that it's gonna return Bool. Duh. Let's remove the return keyword.
+let lightOrderedNames = names.sort({ a, b in a < b })
+
+//: ### Shorthand argument names
+//: 😏 We can refer closures arguments by $0, $1, $2...and so on. So let's get rid of the argument list. Yes the `in` keyword also.
+
+let superLightNames = names.sort( { $0 < $1 } )
+
+//: ### Operator Functions
+//: The string-specific implementation of the greater-than operator is a function that takes 2 strings and returns a Bool. This is exactly the function type of `sort`
+//: 😎 So let's remove the shorthand arguments
+
+let ultraLightNames = names.sort(<)
+
+//More on Operator Functions later.
+
+//: ## Trailing Closures
+//: When you pass a closure as the last argument of a function, we can use trailing closure.
+
+//Write the closure after the function paranthesis is closed.
+let trailingClosureNames = names.sort(){ $0 < $1 }
+
+//If the closure is the only argument, we can get rid of the paranthesis totally.
+let noParanthesisNames = names.sort{ $0 < $1 }
+
+
+//: ## Capturing Values
+
+func exclamator(var quote: String) -> () -> String {
     
-    for word in words {
-        abbreviation += String(word.characters.first!)
+    print(quote)
+    
+    func exclaimClosure() -> String {
+        quote += "!"
+        return quote
     }
     
-    return abbreviation
+    print(quote)
+    
+    return exclaimClosure
 }
 
-//: Swift's standard library provides a function called `map`. `map` is performed on each item, transforms each item based on the closure content and returns a new array with the transformed values.
+let ygritteWords = exclamator("You know nothing, Jon Snow")
 
+ygritteWords()
 
+//: Closure are reference types. The `exclaimClosure` doesn't have any parameters, yet it refers to `quote` in its body. It does by ***capturing*** the existing values of `quote` from its surrounding function and using it within its body. The closure captures a reference of the `quote` and not just its copy of the initial value.
+
+ygritteWords()
+ygritteWords()
+ygritteWords()
+
+let starkWords = exclamator("Winter is Coming")
+starkWords()
+starkWords()
+
+let ygritteAgain = ygritteWords
+ygritteAgain()
 
 //: ----
 //: [Next](@next)
