@@ -190,25 +190,25 @@ struct Color {
 let drogonColor = Color.redColor
 let blackWaterBayColor = Color.oceanColor
 
-class WhiteWalker {
+class Raven {
     
     //Stored Type Property
-    static var eyeColor = "Blue"
+    static var eyeColor = "Grey"
     
     //computed Type Property
-    static var numberOfBones: Int {
-        return 100
+    static var numberOfWings: Int {
+        return 2
     }
     
     //Overrideable computed Type Property
-    class var position: String {
-        return "Lord Commander"
+    class var numberOfEyes: Int {
+        return 2
     }
 }
 
-WhiteWalker.eyeColor
-WhiteWalker.numberOfBones
-WhiteWalker.position
+Raven.eyeColor
+Raven.numberOfWings
+Raven.numberOfEyes
 
 
 //: ----
