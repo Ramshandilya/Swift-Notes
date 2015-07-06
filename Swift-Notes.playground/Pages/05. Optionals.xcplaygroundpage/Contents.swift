@@ -82,7 +82,7 @@ if let name = someName {
 
 //Multiple optional bindings
 
-var someOtherName: String? = "Llyana"
+var someOtherName: String? = "Lyanna"
 
 if let name = someName, anotherName = someOtherName {
     
