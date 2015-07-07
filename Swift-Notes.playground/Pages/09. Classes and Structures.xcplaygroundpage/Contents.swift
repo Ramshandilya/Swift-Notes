@@ -51,7 +51,7 @@ let skill = CombatSkill()
 
 //: ### Accessing properties
 
-fighter.name = "Arthur Dane"
+fighter.name = "Arthur Dayne"
 
 fighter.skill.strength = 97
 fighter.skill.agility = 98
