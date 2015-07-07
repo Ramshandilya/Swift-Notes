@@ -12,5 +12,6 @@
         <page name='09. Classes and Structures'/>
         <page name='10. Properties'/>
         <page name='11. Methods'/>
+        <page name='12. Subscripts'/>
     </pages>
 </playground>
