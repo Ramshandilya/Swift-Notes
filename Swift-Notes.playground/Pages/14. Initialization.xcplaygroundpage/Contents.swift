@@ -246,8 +246,172 @@ hound.title
 //: ## Failable Initializers
 //: It is sometimes useful to define a class, structure, or enumeration for which initialization can fail. This failure might be triggered by invalid initialization parameter values, the absence of a required external resource, or some other condition that prevents initialization from succeeding. 
 
-//: To cope with such initialization failures, we define ***failable initializers***. We define by adding a `?` after `init` like so. `init?`
+//: To cope with such initialization failures, we define ***failable initializers***. We define by adding a `?` after `init` like `init?`. Return `nil` to indicate failure.
 
+struct PositiveInteger{
+    var integerValue: Int
+    
+    init?(_ integer: Int){
+        if integer < 0 { return nil }
+        integerValue = integer
+    }
+}
+
+let someNumber = PositiveInteger(23) //will be of type Optional PositiveInteger
+someNumber?.integerValue
+
+let negativeNumber = PositiveInteger(-2)
+negativeNumber
+
+//: 📖
+//: You cannot define a failable and a nonfailable initializer with the same parameter types and names.
+
+//Failable initializers for enumerations
+
+enum Boolean {
+    case Yes, No
+    
+    init?(_ boolString: String){
+        switch boolString{
+        case "Y":
+            self = .Yes
+        case "N":
+            self = .No
+        default:
+            return nil
+        }
+    }
+}
+
+let amIAwesome = Boolean("Y")
+let isThisSessionTooLong = Boolean("N")
+let yawn = Boolean("Z")
+
+//Failable initializers for enumerations with Raw Values
+
+enum YesOrNo: Character {
+    case Yes = "Y"
+    case No = "N"
+}
+
+let foo = YesOrNo(rawValue: "Y")
+let bar = YesOrNo(rawValue: "X")
+
+//: ### Failable Initializers for Classes
+//: For classes, a failable initializer can trigger an initialization failure only after all stored properties introduced by that class have been set to an initial value and any initializer delegation has taken place.
+
+class Place {
+    var name: String! //Note the Implicitly unwrapped optional String
+    
+    init (){
+        name = "[Unnamed]"
+    }
+    
+    init?(name: String) {
+        self.name = name
+        if name.isEmpty { return nil }
+    }
+}
+
+let somePlace = Place(name: "Westeros")
+somePlace?.name
+
+//Propagation of initialization Failure
+
+class Kingdom: Place {
+    var population: Int!
+    
+    init?(name: String, population: Int){
+        self.population = population
+        super.init(name: name)
+        if population < 1 { return nil }
+    }
+    
+    override init() {
+        self.population = 1
+        super.init()
+    }
+}
+
+let kingdomOfNorth = Kingdom(name: "Winterfell", population: 800)
+
+let someKingdom = Kingdom(name: "", population: 900)
+
+let anotherKingdom = Kingdom(name: "Dorne", population: 0)
+
+//: 📖
+//: Failable initializer must always perform initializer delegation before triggering an initialization failure. A failable initializer can also delegate to a nonfailable initializer.
+
+//: ### Overriding Failable Initializers
+//: You can override a superclass failable initializer in a subclass, just like any other initializer. 
+
+//: Alternatively, you can override a superclass failable initializer with a subclass non-failable initializer. This enables you to define a subclass for which initialization cannot fail, even though initialization of the superclass is allowed to fail. But remember, a nonfailable initializer can never delegate to a failable initializer.
+
+//: You cannot override a non-failable initializer with a failable initializer.
+
+
+// Let's say all southern kingdoms have a min population of 500
+
+class SouthernKingdom: Kingdom {
+    
+    override init(name: String, population: Int){
+        super.init()
+        
+        if self.population < 500 {
+            self.population = 500
+        }
+        
+        if name.isEmpty {
+            self.name = "Southern Kingdom"
+        } else {
+            self.name = name
+        }
+    }
+}
+
+let dorne = SouthernKingdom(name: "Dorne", population: 44) //Result is not an optional
+dorne.name
+dorne.population
+
+
+//: ## Required Initializers
+//: Write the `required` modifier before the definition of a class initializer to indicate that every subclass of the class must implement that initializer. You must also write the required modifier before every subclass implementation of a `required` initializer, to indicate that the initializer requirement applies to further subclasses in the chain.
+
+class ClassA {
+    required init (){
+        
+    }
+}
+
+class ClassB: ClassA {
+    
+    //Subclass init should also have required modifier. NO need to write override.
+    required init () {
+        
+    }
+}
+
+//: ### Setting a Default  Property value with a closure or function
+
+class Westeros {
+    var kingdoms: [String] = {
+       
+        var array = ["North", "Mountain and Vale"]
+        return array
+    }()
+    
+    var kingdoms2: [String] = {
+        
+        var array = ["Reach", "Stormlands"]
+        return array
+        }()
+}
+
+let continent = Westeros()
+continent.kingdoms
+continent.kingdoms2
+
+//: ## Finally! 😪
 
 //: ----
 //: [Next](@next)
