@@ -16,5 +16,6 @@
         <page name='13. Inheritance'/>
         <page name='14. Initialization'/>
         <page name='15. Deinitialization'/>
+        <page name='16. Automatic Reference Counting'/>
     </pages>
 </playground>
