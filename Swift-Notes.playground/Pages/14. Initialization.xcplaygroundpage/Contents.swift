@@ -1,6 +1,6 @@
 //: # Swift Foundation
 //: ----
-//: ## Initializaiton
+//: ## Initialization
 //: Initialization is the process of preparing an instance of a class, structure, or enumeration for use.
 
 /*: Consider the following class

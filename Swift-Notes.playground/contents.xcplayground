@@ -15,5 +15,6 @@
         <page name='12. Subscripts'/>
         <page name='13. Inheritance'/>
         <page name='14. Initialization'/>
+        <page name='15. Deinitialization'/>
     </pages>
 </playground>
