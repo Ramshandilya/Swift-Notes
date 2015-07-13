@@ -18,5 +18,7 @@
         <page name='15. Deinitialization'/>
         <page name='16. Automatic Reference Counting'/>
         <page name='17. Optional Chaining'/>
+        <page name='18. Extensions'/>
+        <page name='19. Protocols'/>
     </pages>
 </playground>
