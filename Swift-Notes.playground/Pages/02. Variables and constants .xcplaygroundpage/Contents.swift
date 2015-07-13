@@ -7,7 +7,7 @@
 let numberOfRooms = 3
 var numberOfDogs = 1
 
-//numberOfRooms += 1
+//numberOfRooms += 1 // ❌ ERROR!
 numberOfDogs += 1
 
 //: ## 😋
