@@ -88,7 +88,7 @@ if let name = someName, anotherName = someOtherName {
     
 }
 
-//: Implicitly Unwrapped Optionals
+//: ### Implicitly Unwrapped Optionals
 //: Sometimes it is clear from a program’s structure that an optional will always have a value, after that value is first set. In these cases, it is useful to remove the need to check and unwrap the optional’s value every time it is accessed, because it can be safely assumed to have a value all of the time.
 
 //: These kinds of optionals are defined as ***Implicitly Unwrapped Optionals***. You declare by suffixing with a ***!*** rather than a ***?***
@@ -96,7 +96,7 @@ if let name = someName, anotherName = someOtherName {
 let forcedName: String = someName! //String
 
 let assumedName: String! = "Jon" //Implicitly Unwrapped Optional string
-let implicitName = assumedName //No need of "?" suffix
+let implicitName = assumedName //No need of "!" suffix
 
 //: An implicitly unwrapped optional is a normal optional behind the scenes, but can also be used like a nonoptional value, without the need to unwrap the optional value each time it is accessed.
 

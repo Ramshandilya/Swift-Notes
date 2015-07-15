@@ -21,6 +21,11 @@ let shouldITrustHim = false
 let amIAwesome: Bool = true
 
 
+//Typealias - Define an alternative name for existing type
+typealias Abc = UInt64
+
+let foo: Abc = 0
+
 //: ### Strings
 
 let emptyString = ""
@@ -58,7 +63,8 @@ print("Tyrion is \(tyrion.age) and a \(tyrion.family)")
 
 //: ### Collection Types
 //: ---
-//: Three primary collection types - Arrays, Sets, Dictionaries
+//: Three primary collection types - Arrays, Sets, Dictionaries.
+
 //: If you create an array, a set, or a dictionary, and assign it to a variable, the collection that is created will be mutable.
 //: If you assign an array, a set, or a dictionary to a constant, that collection is immutable, and its size and contents cannot be changed.
 

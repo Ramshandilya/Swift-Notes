@@ -11,7 +11,7 @@ var numberOfDogs = 1
 numberOfDogs += 1
 
 //: ## 😋
-//: Always start with `let`. If you need to change it's value, declare it as a `var`.
+//: Declaring it as constants allows the compiler to perform some optimizations. So always start with `let`. If you need to change it's value, declare it as a `var`.
 
 
 //: #### Inferred Typing & Explicit Typing
@@ -29,7 +29,7 @@ let coolText: String = "Astala Vista, Baby!"
 //: It is good practice to let the compiler infer types wherever possible.
 
 //: #### Naming variables and constants
-
+//Swift is fully unicode compliant.
 let direWolf = "🐺"
 let 🐷 = "Pig"
 let π = 3.14159
