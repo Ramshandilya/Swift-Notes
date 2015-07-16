@@ -46,7 +46,7 @@ struct Car: Name, Fuel {
     }
 }
 
-//Note that it is mandatory to fulfill all of protocol's requirements
+//Note that it is mandatory to fulfill all of protocol's requirements.
 
 var swiftCar = Car(name: "Swift", manufacturer: "Maruti Suzuki", fuelType: "Diesel")
 
@@ -158,7 +158,182 @@ class SomeSubClass: SomeSuperClass, YetAnotherProtocol {
 //: ### Protocols as Types
 //: Any protocol is a full-fledged type.
 
+protocol MyProtocol {
+    func quote() -> String
+}
 
+class MyClass {
+    
+    var protocolVariable: MyProtocol
+    
+    init(fooBar: MyProtocol){
+        protocolVariable = fooBar
+    }
+    
+    func anotherMethod() -> String{
+        return protocolVariable.quote()
+    }
+}
+
+class SomeOtherClass: MyProtocol {
+    
+    func quote() -> String {
+        return "You know nothing"
+    }
+}
+
+let classA = SomeOtherClass()
+
+let classB = MyClass(fooBar: classA)
+classB.anotherMethod()
+
+
+//: ### Delegation
+//: ***Delegation*** is a design pattern that enables a class or structure to hand off (or delegate) some of its responsibilities to an instance of another type.
+
+//: Delegation can be used to respond to a particular action, or to retrieve data from an external source without needing to know the underlying type of that source.
+
+protocol TableViewDataSource {
+    func numberOfRows() -> Int
+}
+
+class TableView {
+    var dataSource: TableViewDataSource?
+    
+    func renderTableView(){
+        let rowCount = dataSource?.numberOfRows()
+        print("Rows : \(rowCount)")
+    }
+}
+
+struct MyDataSource: TableViewDataSource {
+    func numberOfRows() -> Int {
+        return 6
+    }
+}
+
+let data = MyDataSource()
+let table = TableView()
+table.dataSource = data
+
+table.renderTableView()
+
+
+//: ### Protocol Extensions
+// Existing types can be extendede to adopt and conform to a protocol.
+
+protocol DescriptionProtocol {
+    func printDescription() -> String
+}
+
+extension TableView: DescriptionProtocol {
+    func printDescription() -> String {
+        return "Table View Class"
+    }
+}
+
+extension Int: DescriptionProtocol{
+    func printDescription() -> String {
+        return "Int Type"
+    }
+}
+
+let someInt = 3
+someInt.printDescription()
+
+//: ## 📖
+//: Types do not automatically adopt a protocol just by satisfying its requirements. They must always explicitly declare their adoption of the protocol. 
+
+//: So if a type already conforms to all of a protocol requirements, but has not declared that it adopts that protocol, you can make it adopt the protocl with an empty extension.
+
+struct AnotherStruct {
+    func printDescription() -> String {
+        return "AnotherStruct Type"
+    }
+}
+
+extension AnotherStruct: DescriptionProtocol { } //Compiler doesn't complain as the struct has already adopted to the protocol.
+
+//: ### Collections of Protocol Types
+//: Protocols can be stored in collection such as Array or Dictionary just like any other types.
+
+let fooBar = AnotherStruct()
+
+let conformedTypes: [DescriptionProtocol] = [someInt, table, fooBar]
+
+for type in conformedTypes {
+    type.printDescription()
+}
+
+
+//: ## Protocol Inheritance
+//: Protocols can inherit from one or more other protocols and can add further requirements in top of the requirements it inherits.
+
+//: Syntax
+/*:
+    protocol ProtocolC: ProtocolA, ProtocolB {
+
+    }
+*/
+
+protocol PrettyDescription: DescriptionProtocol {
+    func printPrettyDescription() -> String
+}
+
+extension AnotherStruct: PrettyDescription {
+    func printPrettyDescription() -> String {
+        return "This is AnotherStruct. Oh yeah!"
+    }
+}
+
+fooBar.printPrettyDescription()
+
+extension Double: PrettyDescription {
+    
+    func printPrettyDescription() -> String {
+        return "This is Double. Oh yeah!"
+    }
+
+    func printDescription() -> String {
+        return "Double Type"
+    }
+}
+
+//: ## 📖
+//: It is required to implement `printDescription()` method to satisfy the `PrettyDescription` protocol since it inherits from `DescriptionProtocol`.
+
+//: ### Class-Only Protocols
+//: Protocols can limit iteself to be conformed only by Class types and not by Structures or Enumerations. It can be done by adding the `class` keyword to the protocol's inheritance list. The `class` keyword must appear first in inheritance list.
+
+protocol ClassyProtocol: class {
+    
+}
+
+class MyAnotherClass: ClassyProtocol {
+    
+}
+
+//struct MyAnotherStruct: ClassyProtocol { } //❌ Compile time ERROR !!
+
+//: ## Protocol Composition
+//: Multiple protocols can be combined into a singe requirement. Protocol compositions have the form `protocol<Protocol1, Protocol
+
+protocol ProtocolA { }
+protocol ProtocolB { }
+
+struct StructA: ProtocolA, ProtocolB {
+    
+}
+
+func someMethod(prettyTypes:protocol<ProtocolA, ProtocolB>) {
+    
+}
+
+let jarjar = StructA()
+someMethod(jarjar)
+
+let anakin = MyAnotherClass()
+//someMethod(anakin)
 
 
 

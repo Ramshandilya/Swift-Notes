@@ -13,7 +13,7 @@ enum Dragon {
 
 var myDragon = Dragon.Drogon
 
-//: Enums in Swift have more features compared to C and Objective-C.
+//: Enums in Swift have more features compared to C and Objective-C (they are not typealias for Intds etc.)
 //: Enums can have computed properties, instance methods, initializers, can be extended and can conform to protocols.
 
 myDragon = .Rhaegal
