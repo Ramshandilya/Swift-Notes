@@ -61,7 +61,7 @@ print("Tyrion is \(tyrion.age) and a \(tyrion.family)")
 //: ### ⚠️
 //: Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple.
 
-//: ### Collection Types
+//: ## Collection Types
 //: ---
 //: Three primary collection types - Arrays, Sets, Dictionaries.
 
@@ -71,7 +71,8 @@ print("Tyrion is \(tyrion.age) and a \(tyrion.family)")
 //: ### 😋
 //: It is good practice to create immutable collections in all cases where the collection does not need to change. Doing so enables the Swift compiler to optimize the performance of the collections you create.
 
-//: Array - An array stores values of the same type in an ordered list. The same value can appear in an array multiple times at different positions.
+//: ### Array
+//: An array stores values of the same type in an ordered list. The same value can appear in an array multiple times at different positions.
 
 let places: Array<String> = ["Night's Watch", "Winterfell"]
 
@@ -113,7 +114,8 @@ print(families)
 //Subset
 families[3...5]
 
-//: Sets - A set stores distinct values of the same type in a collection with no defined ordering. You can use sets as an alternative to arrays when the order of items is not important, or when you need to ensure that an item only appears once.
+//: ### Sets
+//: A set stores distinct values of the same type in a collection with no defined ordering. You can use sets as an alternative to arrays when the order of items is not important, or when you need to ensure that an item only appears once.
 
 var parents = Set<String>()
 parents.insert("Eddard")
@@ -138,7 +140,8 @@ parents.intersect(kids)
 parents.isDisjointWith(kids) //😔
 
 
-//: Dictionaries - A dictionary stores associations between keys of the same type and values of the same type in an collection with no defined ordering. Each value is associated with a unique key, which acts as an identifier for that value within the dictionary.
+//: ### Dictionaries
+//: A dictionary stores associations between keys of the same type and values of the same type in an collection with no defined ordering. Each value is associated with a unique key, which acts as an identifier for that value within the dictionary.
 
 var basicSyntax = Dictionary<String, String>()
 

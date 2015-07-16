@@ -26,11 +26,13 @@ for name in checkList {
 
 //Iterate a dictionary
 
-var nickNames: [String: String] = ["KingSlayer": "Jaime Lannister", "Imp": "Tyrion Lannister", "Khaleesi": "Daenerys Targaryen"]
+let nickNames: [String: String] = ["KingSlayer": "Jaime Lannister", "Imp": "Tyrion Lannister", "Khaleesi": "Daenerys Targaryen"]
 
 for (nickName, realName) in nickNames {
     print("\(realName) is also known as \(nickName)")
 }
+
+//: Each item in the dictionary is returned as a `(key, value)` tuple when the dictionary is iterated, and you can decompose the `(key, value)` tuple’s members as explicitly named constants for use within the body of the for-in loop.
 
 //For
 //C-style for loops with a condition and an incrementer
@@ -39,6 +41,8 @@ for (nickName, realName) in nickNames {
 for var index = 1; index < 4; ++index {
     print("\(index) times 5 is \(index * 5)")
 }
+
+//: Since the value of `index` changes with each iteration, it is declared as `var`.
 
 //: ### While Loops
 //: A while loop performs a set of statements until a condition becomes false. These kinds of loops are best used when the number of iterations is not known before the first iteration begins.
@@ -167,7 +171,7 @@ default:
 
 //Early exit
 
-//: A `guard` statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to require that a condition must be true in order for the code after the guard statement to be executed. Unlike an if statement, a guard statement always has an else clause—the code inside the else` clause is executed if the condition is not true.
+//: A `guard` statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to require that a condition must be true in order for the code after the guard statement to be executed. Unlike an if statement, a guard statement always has an `else` clause—the code inside the `else` clause is executed if the condition is not true.
 
 nickNames
 

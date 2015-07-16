@@ -59,8 +59,6 @@ var someName: String? //someName is automatically set to nil
 
 //If statement and forced unwrapping
 
-someName = nil
-
 if someName == nil {
     someName = "Rhaegar"
 }
@@ -82,7 +80,7 @@ if let name = someName {
 
 //Multiple optional bindings
 
-var someOtherName: String? = "Lyanna"
+let someOtherName: String? = "Lyanna"
 
 if let name = someName, anotherName = someOtherName {
     
