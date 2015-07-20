@@ -43,7 +43,7 @@ print(orderedNames)
 
 //: Swift's standard library provides a function called `sort`. `sort` is performed on each pair of items, sorts them based on the closure content and returns a new array with the sorted values.
 
-//: ### Inferring type from constant
+//: ### Inferring type from context
 //: The type of the parameters of `sort` function and its return value can be inferred from the type of sort function.
 //: 😏 It's obvious that it will be of the same type of the elements in the array.
 
@@ -68,7 +68,7 @@ let ultraLightNames = names.sort(<)
 
 //More on Operator Functions later.
 
-//: ## Trailing Closures
+//: ### Trailing Closures
 //: When you pass a closure as the last argument of a function, we can use trailing closure.
 
 //Write the closure after the function paranthesis is closed.
@@ -77,6 +77,14 @@ let trailingClosureNames = names.sort(){ $0 < $1 }
 //If the closure is the only argument, we can get rid of the paranthesis totally.
 let noParanthesisNames = names.sort{ $0 < $1 }
 
+
+//: Recap of how we trimmed it down
+names.sort ({ (a: String, b: String) -> Bool in return a < b })
+names.sort ({ a, b in return a < b }) //Infer Type
+names.sort({ a, b in a < b }) //Implicit returns for single expression closures.
+names.sort( { $0 < $1 } ) //Shorthand argument names
+names.sort(){ $0 < $1 } //Trailing Closures - Last argument of a function
+names.sort{ $0 < $1 } //If it's the only argument of a function.
 
 //: ## Capturing Values
 
@@ -102,14 +110,49 @@ ygritteWords()
 
 ygritteWords()
 ygritteWords()
-ygritteWords()
+ygritteWords() //Notice the growing exclamation marks.
 
 let starkWords = exclamator("Winter is Coming")
 starkWords()
 starkWords()
 
+//ANOTHER EXAMPLE
+
+func makeIncrementer(amount: Int) -> Void -> Int {
+    var currentTotal = 0
+    
+    func incrementer() -> Int {
+        print(currentTotal)
+        currentTotal += amount
+        return currentTotal
+    }
+    
+    return incrementer
+}
+
+let incrementByFive = makeIncrementer(5)
+
+incrementByFive()
+incrementByFive()
+incrementByFive()
+incrementByFive()
+
+let incrementByEight = makeIncrementer(8)
+incrementByEight()
+incrementByEight()
+incrementByEight()
+
+//: ### Closures are reference Types
+//: Capturing values occur because Functions and Closures are reference types. So when you assign a function or a closure to a variable/constant, you are setting it to a reference of the function or closure. 
+
+//: So if you assign a new closureto two different constants/variables, both of these will refer to the same closure.
+
 let ygritteAgain = ygritteWords
 ygritteAgain()
+
+let anotherIncrementByFive = incrementByFive
+anotherIncrementByFive()
+
 
 //: ----
 //: [Next](@next)
