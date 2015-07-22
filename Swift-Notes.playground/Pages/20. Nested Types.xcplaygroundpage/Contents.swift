@@ -1,7 +1,6 @@
-//: [Previous](@previous)
+//: # Swift Foundation
+//: ----
+//: ## Nested Types
 
-import Foundation
-
-var str = "Hello, playground"
-
+//: ----
 //: [Next](@next)

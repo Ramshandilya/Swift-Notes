@@ -219,7 +219,7 @@ table.dataSource = data
 table.renderTableView()
 
 
-//: ### Protocol Extensions
+//: ### Adding protocol conformanmce with an Extension
 // Existing types can be extendede to adopt and conform to a protocol.
 
 protocol DescriptionProtocol {
@@ -335,8 +335,113 @@ someMethod(jarjar)
 let anakin = MyAnotherClass()
 //someMethod(anakin)
 
+//: ### Checking for Protocol Conformance
+//: Checking for and casting to a protocol follows the same syntax as checking for a type.
 
+/*:
+* `is` operator returns true if an instance conforms to a protocol.
+* `as?` returns an optional value of the protocol's type.
+* `as!` forces the downcast to the protocol type.
+*/
 
+protocol HasName {
+    var name: String { get set }
+}
+
+class Warrior: HasName {
+    var name: String
+    
+    init(name: String){
+        self.name = name
+    }
+
+    func description() -> String {
+        return "I am a Warrior"
+    }
+}
+
+class Animal: HasName {
+    var name: String
+    
+    init(name: String){
+        self.name = name
+    }
+}
+
+class CombatSkill{
+    var strength: Int
+    var agility: Int
+    init(strength: Int, agility: Int) {
+        self.strength = strength
+        self.agility = agility
+    }
+}
+
+let ned = Warrior(name: "Eddard")
+let ghost = Animal(name: "Ghost")
+let skill = CombatSkill(strength: 90, agility: 99)
+
+let mixedBag: [Any] = [ned, ghost, skill]
+
+for item in mixedBag {
+    if let itemWithName = item as? HasName {
+        print(itemWithName.name)
+    } else {
+        print("Item doesn't have a name")
+    }
+}
+
+//: ## Protocol Extensions
+//: Protocols can be extended to provide method and property implementations to conforming types.
+
+//: This allows us to define behavior on protocols themselves, rather than in each type's individual conformance or in a global function.
+
+extension HasName {
+    var greeting: String {
+        return "Hi, \(name)"
+    }
+}
+
+ned.greeting
+
+//: ### Providing Default Implemntations
+
+extension HasName {
+    func description() -> String {
+        return "I am something which has a name"
+    }
+}
+
+ned.description() // Has custom implementation of description()
+ghost.description() // Uses default implementation from the protocol Extension.
+
+//: ### Adding Constraints to Protocol Extensions
+//: We can specify constraints that the conforming types must satisfy before the methods/properties of the extension are available.
+
+protocol HasPopulation {
+    var population: Int { get set }
+}
+
+class Kingdom: HasName, HasPopulation {
+    var name: String
+    var population: Int
+    
+    init(name: String, population: Int){
+        self.name = name
+        self.population = population
+    }
+}
+
+extension HasName where Self : HasPopulation {
+    func populationDescription() -> String {
+        return "\(name) has a population of \(population)"
+    }
+}
+
+let winterfell = Kingdom(name: "Winterfell", population: 2302)
+
+winterfell.populationDescription()
+//ned.populationDescription() // NOT AVAILABLE
 
 
 //: ----
