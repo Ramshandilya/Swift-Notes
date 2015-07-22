@@ -172,7 +172,7 @@ niceSquare.edge = 5
 /*:
 * Useful for defining values common to all instances of that type.
 * For Value Types (Structs, Enums), you can create stored and computed type properties.
-* For Classes, you can create only computed type properties (Revisit).
+* For Classes, you can create only computed type properties.
 * Type properties are defined with the `static` keyword.
 * However, for computed type properties in Class types are declared with `class` keyword, to allow subclasses to override
 */
@@ -199,6 +199,8 @@ class Raven {
     static var numberOfWings: Int {
         return 2
     }
+    
+//    class var numberOfLegs = 10
     
     //Overrideable computed Type Property
     class var numberOfEyes: Int {
