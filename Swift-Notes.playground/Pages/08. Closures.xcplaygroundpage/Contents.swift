@@ -86,6 +86,11 @@ names.sort( { $0 < $1 } ) //Shorthand argument names
 names.sort(){ $0 < $1 } //Trailing Closures - Last argument of a function
 names.sort{ $0 < $1 } //If it's the only argument of a function.
 
+let numbersArray = [1, 2, 3, 4, 5, 6, 7]
+
+let doubledNumbers = numbersArray.map({(a: Int) -> Int in return a * 2})
+doubledNumbers
+
 //: ## Capturing Values
 
 func exclamator(var quote: String) -> () -> String {

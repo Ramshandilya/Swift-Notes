@@ -20,5 +20,6 @@
         <page name='17. Optional Chaining'/>
         <page name='18. Extensions'/>
         <page name='19. Protocols'/>
+        <page name='18. Type Casting'/>
     </pages>
 </playground>
