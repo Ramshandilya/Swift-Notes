@@ -62,7 +62,7 @@ class Match
 //: Always declare a lazy property as a variable. That's because constant properties must always have a value before initialization completes.
 
 //: ## ⚠️
-//: If a lazy property has not been initialized yet, and is accessed by multiple threads smilutaneously, there is no guarantee that the property will be created only once.
+//: If a lazy property has not been initialized yet, and is accessed by multiple threads simultaneously, there is no guarantee that the property will be created only once.
 
 //: ### Computed Properties
 //: Computed properties do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
@@ -169,10 +169,10 @@ niceSquare.edge = 5
 //: ### Type Properties
 //: Properties that belong to the type and not to any one instance of that type. There will only ever be one copy of these properties, no matter how many instances of that type you create.
 
-/*
+/*:
 * Useful for defining values common to all instances of that type.
 * For Value Types (Structs, Enums), you can create stored and computed type properties.
-* For Classes, you can create only computed type properties.
+* For Classes, you can create only computed type properties (Revisit).
 * Type properties are defined with the `static` keyword.
 * However, for computed type properties in Class types are declared with `class` keyword, to allow subclasses to override
 */
@@ -209,7 +209,5 @@ class Raven {
 Raven.eyeColor
 Raven.numberOfWings
 Raven.numberOfEyes
-
-
 //: ----
 //: [Next](@next)

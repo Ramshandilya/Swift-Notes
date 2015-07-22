@@ -2,7 +2,7 @@
 //: ----
 //: ## Methods
 
-//: ***Methods*** are funcitons that are associated witha particular type. Classes, structures, enumerations can all define *instance methods* as well as *type methods*.
+//: ***Methods*** are funcitons that are associated with a particular type. Classes, structures, enumerations can all define *instance methods* as well as *type methods*.
 
 class Point {
     var x: Double = 0
