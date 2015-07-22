@@ -228,7 +228,7 @@ func chooseOperation(op: Operator) -> (Int, Int) -> Int {
     }
 }
 
-let anotherOperation = chooseOperationForOperator(.Subtract)
+let anotherOperation = chooseOperation(.Subtract)
 print(anotherOperation(8, 6))
 
 //: ----

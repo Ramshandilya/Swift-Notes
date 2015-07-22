@@ -72,21 +72,21 @@ import Foundation
 struct Cube {
     var edge: Double = 0
     
-    var area: Double {
+    var volume: Double {
         get{
             return edge * edge * edge
         }
-        set (newArea){
+        set (newVolume){
             let power: Double = (1/3)
-            edge = pow(newArea, power)
+            edge = pow(newVolume, power)
         }
     }
 }
 
 var someCube = Cube(edge: 3)
-someCube.area
+someCube.volume
 
-someCube.area = 125
+someCube.volume = 125
 someCube.edge
 
 // Shorthand setter declaration
@@ -115,7 +115,7 @@ someSquare.edge
 struct TalkingCube {
     var edge: Double = 0
     
-    var area: Double {
+    var volume: Double {
         get {
             return edge * edge * edge
         }
