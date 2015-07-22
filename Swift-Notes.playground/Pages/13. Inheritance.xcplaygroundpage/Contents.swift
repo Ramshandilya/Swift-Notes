@@ -16,7 +16,7 @@ Subclass can
 
 //: ### Base Class
 
-//Any class that doesn't inherit from another class is a ***base class***
+//: Any class that doesn't inherit from another class is a ***base class***
 
 class BaseClass {
     var someProperty = 1

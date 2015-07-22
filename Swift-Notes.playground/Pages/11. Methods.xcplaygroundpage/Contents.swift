@@ -46,7 +46,7 @@ class CGPoint {
     }
 }
 
-//: ### Modifying Value Types withing Instance methods
+//: ### Modifying Value Types within Instance methods
 //: By default, the properties of a value type (structs & enums) cannot be modified from within its instance methods. However, if you need to modify, you can opt in for `mutating` behavior.
 
 struct ABPoint {
