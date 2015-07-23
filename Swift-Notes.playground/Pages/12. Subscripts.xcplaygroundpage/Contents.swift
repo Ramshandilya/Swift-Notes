@@ -50,7 +50,7 @@ var diet = Food()
 diet[.Breakfast] = "Scrambled Eggs"
 diet[.Lunch] = "Rice"
 
-print("I hade \(diet[.Breakfast]) for breakfast")
+print("I had \(diet[.Breakfast]) for breakfast")
 
 
 //: ----

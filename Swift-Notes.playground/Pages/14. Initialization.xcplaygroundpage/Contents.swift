@@ -74,7 +74,7 @@ class Human {
 
 //:The following code will throw an error
 /*:
-    let nicePerson = Person() //Error
+    let nicePerson = Human() //Error
 */
 
 let somePerson = Human(name: "Bran", age: 7)
