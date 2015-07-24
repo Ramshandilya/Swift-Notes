@@ -44,10 +44,10 @@ class Gambler {
         numberOfChips += Casino.withdrawChips(chips)
     }
     
-    deinit {
-        Casino.depositChips(numberOfChips)
-        print("Deint called")
-    }
+//    deinit {
+//        Casino.depositChips(numberOfChips)
+//        print("Deint called")
+//    }
 }
 
 var foo: Gambler? = Gambler(chips: 45)

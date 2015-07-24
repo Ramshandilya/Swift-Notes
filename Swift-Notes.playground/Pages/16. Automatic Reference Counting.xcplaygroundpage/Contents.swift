@@ -32,12 +32,14 @@ vehicle3 = vehicle1
 
 //Let's break 2 of the references
 
+vehicle1?.numberOfWheels = 10
+vehicle1?.numberOfWheels
 vehicle1 = nil
 vehicle2 = nil
 
 //Note that deinit is not yet called. vehicle3 is still holding a strong reference to Vehicle instance.
-
-//vehicle3 = nil
+vehicle3?.numberOfWheels
+vehicle3 = nil
 
 //: ### Strong Reference cycles
 //: When two class instances hold strong reference to each other, such that each instance is kept alve, it is called as ***strong reference cycle***
@@ -46,7 +48,7 @@ vehicle2 = nil
 
 class Pet {
     let name: String
-    var petOwner: PetOwner?
+    weak var petOwner: PetOwner?
     
     init(name: String) {
         self.name = name
@@ -114,7 +116,7 @@ var nymeria: Pet? = Pet(name: "Nymeria")
 var arya: PetOwner? = PetOwner(name: "Arya Stark")
 
 nymeria!.petOwner = arya
-arya!.pet = nymeria
+arya?.pet = nymeria
 
 nymeria = nil
 

@@ -251,17 +251,21 @@ hound.title
 struct PositiveInteger{
     var integerValue: Int
     
-    init?(_ integer: Int){
+    init?(integer: Int){
         if integer < 0 { return nil }
         integerValue = integer
     }
+    
+    init(number: Int){
+        integerValue = number
+    }
 }
 
-let someNumber = PositiveInteger(23) //will be of type Optional PositiveInteger
+let someNumber = PositiveInteger(integer:23) //will be of type Optional PositiveInteger
 someNumber?.integerValue
 
-let negativeNumber = PositiveInteger(-2)
-negativeNumber
+let negativeNumber = PositiveInteger(number: -2)
+negativeNumber.integerValue
 
 //: 📖
 //: You cannot define a failable and a nonfailable initializer with the same parameter types and names.
@@ -309,7 +313,7 @@ class Place {
     
     init?(name: String) {
         self.name = name
-        if name.isEmpty { return nil }
+        if name == "#" { return nil }
     }
 }
 
@@ -327,6 +331,11 @@ class Kingdom: Place {
         if population < 1 { return nil }
     }
     
+    convenience init?(population: Int){
+        self.init()
+        self.population = population
+    }
+    
     override init() {
         self.population = 1
         super.init()
@@ -335,9 +344,11 @@ class Kingdom: Place {
 
 let kingdomOfNorth = Kingdom(name: "Winterfell", population: 800)
 
-let someKingdom = Kingdom(name: "", population: 900)
+let someKingdom = Kingdom(name: "#", population: 900)
 
 let anotherKingdom = Kingdom(name: "Dorne", population: 0)
+
+let winterFell = Kingdom(population: 200)
 
 //: 📖
 //: Failable initializer must always perform initializer delegation before triggering an initialization failure. A failable initializer can also delegate to a nonfailable initializer.
@@ -381,6 +392,10 @@ class ClassA {
     required init (){
         
     }
+    
+    func someMethod(){
+        
+    }
 }
 
 class ClassB: ClassA {
@@ -393,10 +408,11 @@ class ClassB: ClassA {
 
 //: ### Setting a Default  Property value with a closure or function
 
+let someArray = ["HI"]
 class Westeros {
     var kingdoms: [String] = {
        
-        var array = ["North", "Mountain and Vale"]
+        var array = someArray
         return array
     }()
     
@@ -405,12 +421,15 @@ class Westeros {
         var array = ["Reach", "Stormlands"]
         return array
         }()
+    var greeting: String = {
+        return "Hello"
+    }()
 }
 
 let continent = Westeros()
 continent.kingdoms
 continent.kingdoms2
-
+continent.greeting
 //: ## Finally! 😪
 
 //: ----
