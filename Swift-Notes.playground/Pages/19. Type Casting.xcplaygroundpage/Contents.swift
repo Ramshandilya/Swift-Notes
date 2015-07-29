@@ -50,12 +50,12 @@ for item in weapons {
 }
 
 //: ### Downcasting
-//: An instance of a class may actually refer to an instance of a subclass behind the scenes. You can downcast to the subclass tpe with the ***type cast operator*** (`as?` or `as!`).
+//: An instance of a class may actually refer to an instance of a subclass behind the scenes. You can downcast to the subclass type with the ***type cast operator*** (`as?` or `as!`).
 
 /*:
 Downcasting have chances of failing, hence the operators comes in two forms
 * The conditional form, `as?`, returns an optional value. The value will be nil if the downcast is not successful.
-* The forced form, `as!`, attempts the downcast and force-unwrps the result. Use this when you are sure the downcast will succeed.
+* The forced form, `as!`, attempts the downcast and force-unwraps the result. Use this when you are sure the downcast will succeed.
 */
 
 

@@ -112,7 +112,7 @@ outer6.foo.innerValue
 
 
 //: ### Reference type in a Value type
-//: If you ahve a value type which contains a reference type, things get interesting. The outer value being value type, gets copied, but the copy has a reference to the same nested type as the original.
+//: If you have a value type which contains a reference type, things get interesting. The outer value being value type, gets copied, but the copy has a reference to the same nested type as the original.
 
 struct StructB {
     var value = 0
