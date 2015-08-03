@@ -58,7 +58,7 @@ struct CombatSkill {
 extension CombatSkill {
     
     init(strength: Int) {
-        self.init(strength: 90, agility: 50, stamina: 50, speed: 50, knowsMagic: false)
+        self.init(strength: strength, agility: 50, stamina: 50, speed: 50, knowsMagic: false)
     }
 }
 
