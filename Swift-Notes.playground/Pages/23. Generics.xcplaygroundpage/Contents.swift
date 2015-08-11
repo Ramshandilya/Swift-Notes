@@ -4,41 +4,46 @@
 //: *Generic code* enables you to write flexible, reusable functions and types that can work with any type.
 
 //: ### The Problem
+/*
+The below example is commented as it doesn't work.
+http://stackoverflow.com/questions/31697093/cannot-pass-any-array-type-to-a-function-which-takes-any-as-parameter
 
-//let names = ["Joffrey", "Cersei", "Mountain", "Hound"]
-//let ranks = [1, 2, 3, 4, 5]
-//let weights = [141.2, 166.0, 173.8, 220.3]
-//
-////Let's create funcitons to print each element for the arrays
-//
-//func printNames(items: [String]){
-//    for item in items {
-//        print(item)
-//    }
-//}
-//
-//func printRanks(items: [Int]){
-//    for item in items {
-//        print(item)
-//    }
-//}
-//
-//func printWeights(items: [Double]){
-//    for item in items {
-//        print(item)
-//    }
-//}
-//
-////: Clearly the there is code duplication. The body of the three functions are identical. We can get away by  replacing the type with `Any`
-//
-//func printItems(items: [Any]){
-//    for item in items {
-//        print(item)
-//    }
-//}
-//
-//printItems(names)
-//printItems(ranks)
+let names = ["Joffrey", "Cersei", "Mountain", "Hound"]
+let ranks = [1, 2, 3, 4, 5]
+let weights = [141.2, 166.0, 173.8, 220.3]
+
+//Let's create funcitons to print each element for the arrays
+
+func printNames(items: [String]){
+    for item in items {
+        print(item)
+    }
+}
+
+func printRanks(items: [Int]){
+    for item in items {
+        print(item)
+    }
+}
+
+func printWeights(items: [Double]){
+    for item in items {
+        print(item)
+    }
+}
+
+//: Clearly the there is code duplication. The body of the three functions are identical. We can get away by  replacing the type with `Any`
+
+func printItems(items: [Any]){
+    for item in items {
+        print(item)
+    }
+}
+
+printItems(names)
+printItems(ranks)
+
+*/
 
 func swapIntegers(inout a: Int, inout _ b: Int){
     let temp = a
