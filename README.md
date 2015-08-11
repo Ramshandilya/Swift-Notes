@@ -5,13 +5,13 @@ Consists of notes for all topics from the [Swift documentation](https://develope
 
 ## Screenshots
 
-![Basic Types](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot%20-%20Basic%20Types.png)
+![Basic Types](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot-BasicTypes.jpg)
 
-![Optionals](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot%20-%20Optionals.png)
+![Optionals](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot-Optionals.jpg)
 
-![Initialization](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot%20-%20Init.png)
+![Initialization](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot-Init.jpg)
 
-![ARC](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot%20-%20ARC.png)
+![ARC](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot-ARC.jpg)
 
-![Nested Types](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot%20-%20Nested%20Types.png)
+![Nested Types](https://github.com/Ramshandilya/Swift-Notes/blob/master/Screenshots/ScreenShot-NestedTypes.jpg)
 
