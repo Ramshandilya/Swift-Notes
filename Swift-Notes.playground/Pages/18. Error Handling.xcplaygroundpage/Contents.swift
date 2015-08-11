@@ -65,5 +65,24 @@ func foo(flag: Bool) throws {
 
 try! foo(false)
 
+//: ### Defer
+//: `defer` lets you execute some code regardless of whether an error occurred. A `defer` statement defers execution until the current scope is exited. 
+
+/*:
+    // Some scope starts
+    {
+        // Get some resource
+        
+        defer {
+            //Release resource
+        }
+
+        // Do stuff with the resource.
+
+        // Maybe return early if an error occurs.
+
+    } //Scope Ends. Deferred statements are called when the scope ends.
+
+*/
 //: ----
 //: [Next](@next)
