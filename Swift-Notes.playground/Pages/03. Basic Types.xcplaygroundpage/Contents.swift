@@ -121,15 +121,20 @@ var parents = Set<String>()
 parents.insert("Eddard")
 parents.insert("Catelyn")
 
+//Sets Keep only Unique values
+parents.insert("Eddard")
+
 parents.count
 parents.isEmpty
 
 print(parents)
 
-let kids = Set(["Robb", "Sansa", "Brandon", "Arya", "Rickon"])
+var kids = Set(["Robb", "Sansa", "Brandon", "Arya", "Rickon", "Jon"])
+
+// To check if element exists
+kids.contains("Sansa")
 
 //Constructing sets
-
 let starks: Set = parents.union(kids)
 
 parents.isSubsetOf(starks)
@@ -139,7 +144,19 @@ starks.isStrictSubsetOf(starks)
 parents.intersect(kids)
 parents.isDisjointWith(kids) //😔
 
+//Mutates the parents set with kids set
+parents.unionInPlace(kids)
+print(parents);
 
+let getParentsBack = parents.subtract(kids)
+print(parents); // Set Parent does not change. 
+
+//Remove By Value
+kids.remove("Jon")
+kids.removeFirst()
+
+// Empting Sets
+parents.removeAll();
 //: ### Dictionaries
 //: A dictionary stores associations between keys of the same type and values of the same type in an collection with no defined ordering. Each value is associated with a unique key, which acts as an identifier for that value within the dictionary.
 
