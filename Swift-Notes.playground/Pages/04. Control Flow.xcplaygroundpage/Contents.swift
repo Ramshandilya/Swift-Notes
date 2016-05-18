@@ -8,6 +8,7 @@
 //For-in
 for index in 1...4 {
     print("\(index) times 5 is \(index * 5)")
+    print ("hello")
 }
 
 //: In the example above, index is a constant whose value is automatically set at the start of each iteration of the loop. As such, it does not have to be declared before it is used. It is implicitly declared simply by its inclusion in the loop declaration, without the need for a let declaration keyword.
