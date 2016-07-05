@@ -34,13 +34,6 @@ for (nickName, realName) in nickNames {
 
 //: Each item in the dictionary is returned as a `(key, value)` tuple when the dictionary is iterated, and you can decompose the `(key, value)` tuple’s members as explicitly named constants for use within the body of the for-in loop.
 
-//For
-//C-style for loops with a condition and an incrementer
-// for initilization; conditon; increment
-
-for var index = 1; index < 4; ++index {
-    print("\(index) times 5 is \(index * 5)")
-}
 
 //: Since the value of `index` changes with each iteration, it is declared as `var`.
 
@@ -51,13 +44,13 @@ for var index = 1; index < 4; ++index {
 var index = 1
 while index < 5 {
     print("Para..para..Paradise!")
-    ++index
+    index += 1
 }
 
 //: `repeat-while` evaluates its condition at the end of each pass through the loop.
 repeat {
     print("Para..para..Paradise!")
-    ++index
+    index += 1
 } while index < 3
 
 
@@ -78,7 +71,7 @@ if index > 6 {
 if index > 6 {
     print("Greater than 6")
 } else if index == 6 {
-    print("Less than 6")
+    print("Equal to 6")
 } else {
     print("Less than 6")
 }
